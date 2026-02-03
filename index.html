@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: pink;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: sparkle 10s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkle {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-50px, -50px); }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            margin-top: 150px;
+        }
+
+        h1 { font-size: 48px; }
+
+        button {
+            font-size: 22px;
+            padding: 12px 35px;
+            margin: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        #no {
+            background-color: white;
+            color: #ff4d88;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Will you be my valentine? 💘</h1>
+        <button id="yes" onclick="showYay()">YES</button>
+        <button id="no">NO</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("no");
+
+        noBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        function showYay() {
+            document.body.innerHTML = `
+                <div style="
+                    background:pink;
+                    height:100vh;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    font-family:Arial;">
+                    <h1 style="font-size:64px;">YAYYYYY 💖🥰✨</h1>
+                </div>`;
+        }
+    </script>
+</body>
+</html>
